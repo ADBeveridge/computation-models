@@ -1,33 +1,40 @@
 /* By Alan Beveridge */
 #include <stdio.h>
 
-void start (void *ptr);
-void task1 (void *ptr);
-void stop (void *ptr);
+/* Create typedefs that simplify the syntax a ton. */
+typedef void (**func_decl)();
+typedef void (func_ptr)(func_decl);
+
+/* Functions that are assigned to the pointer as needed. */
+void start(func_decl);
+void task1(func_decl);
+void stop(func_decl);
 
 /* Implementation of an fsm. */
 int main()
 {
-	void (*state) (void *); 
-	state = start;
-  	while (state != NULL)
-  	{
-  		state(&state);
-  	}
-  	return 0;
+	func_ptr *fptr = &start;
+	while (fptr != NULL)
+	{
+		fptr(&fptr);
+	}
+	return 0;
 }
 
-void start (void *ptr)
+void start(func_decl decl)
 {
-    *ptr = task1;
+	*decl = &task1;
+	printf("In start.\n");
 }
 
-void stop (void *ptr)
+void task1(func_decl decl)
 {
-    *ptr = NULL;
+	*decl = &stop;
+	printf("In task1.\n");
 }
 
-void task1 (void *ptr)
+void stop(func_decl decl)
 {
-    *ptr = stop;
+	*decl = NULL;
+	printf("In stop.\n");
 }
