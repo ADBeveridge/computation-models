@@ -1,4 +1,4 @@
-#  Models of Computation
+#  Computation Models
 
 ## Finite State Machine
 
