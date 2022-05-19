@@ -1,6 +1,4 @@
-#  Computation Models
-
-## Finite State Machine
+# Finite State Machine
 
 The finite state machine (FSM) is an machine that can be in exactly one of a finite 
 number of states at any given time. In these implementations, the machine is 
@@ -15,5 +13,3 @@ is needed, it goes into the struct.
 is a FSM where you pass data to each function individually. If you have a string 
 or integer to parse through, you have to add it to the function prototypes and 
 defenitions.
-
-**_NOTE:_** More implementations of computation models will come.
