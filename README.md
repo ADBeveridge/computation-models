@@ -12,4 +12,4 @@ is needed, it goes into the struct.
 [fsm-arg.c](https://github.com/ADBeveridge/computation-models/blob/main/fsm-arg.c) 
 is a FSM where you pass data to each function individually. If you have a string 
 or integer to parse through, you have to add it to the function prototypes and 
-defenitions.
+definitions.
